@@ -7,13 +7,11 @@ using UnityEngine.AI;
 
 public class PlayerController : MonoBehaviour
 {
-    private Camera camera;
     private NavMeshAgent navAgent;
     private LayerMask movementMask;
 
 	void Start ()
     {
-        camera = Camera.main;
         navAgent = GetComponent<NavMeshAgent>();
 	}
 	
@@ -21,7 +19,7 @@ public class PlayerController : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
-            Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
             if (Physics.Raycast(ray, out hit))
